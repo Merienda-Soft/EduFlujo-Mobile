@@ -1,14 +1,19 @@
+import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import { Alert } from 'react-native';
 
-const MainLogin = () => {
+// estilo global para le container
+import globalStyles from '../styles/GlobalStyles';
+
+
+
+const MainLogin = ({ navigation }) => {
 
     return (
-        <View style={styles.container}>
+        <View style={globalStyles.container}>
 
             <Image source={require('../assets/images/logo.webp')} style={styles.logo} />
 
-            <TouchableOpacity onPress={() => Alert.alert('Hello')} style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate('CodeRole')} style={styles.button}>
                 <Text style={styles.text}>Login</Text>
             </TouchableOpacity>
            
@@ -19,13 +24,6 @@ const MainLogin = () => {
 export default MainLogin;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#4D5D73',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
     button: {
         backgroundColor: '#D96E11',
         padding: 12,
