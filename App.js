@@ -1,5 +1,5 @@
-import MainLogin from "./src/screens/MainLogin";
+import MainNavigator from "./src/navigation/MainNavigator";
 
 export default function App() {
-  return <MainLogin />;
+  return <MainNavigator />;
 }
