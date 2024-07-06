@@ -9,7 +9,6 @@ import Clases from '../screens/Clases';
 import Asistencias from '../screens/Asistencias';
 import Actividades from '../screens/Actividades';
 import Asignaturas from '../screens/Asignaturas';
-import { BackHandler } from 'react-native';
 
 const icons = {
     Home: {
@@ -31,11 +30,11 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
     return (
-        <Tab.Navigator tabBar={props => <CustomBottomNav {...props} icons={icons} />}>
+        <Tab.Navigator screenOptions={{tabBarHideOnKeyboard: true}} tabBar={props => <CustomBottomNav {...props} icons={icons} />}>
             <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
             <Tab.Screen name="Reportes" component={Home} options={{ headerShown: false }}/>
             <Tab.Screen name="Perfil" component={Home} options={{ headerShown: false }}/>
-            <Tab.Screen name="Mis Clases" component={Clases} options={{BackHandler: true}}/>
+            <Tab.Screen name="Mis Clases" component={Clases}/>
             <Tab.Screen name="Asistencias" component={Asistencias}/>
             <Tab.Screen name="Actividades" component={Actividades}/>
             <Tab.Screen name="Asignaturas" component={Asignaturas}/>
