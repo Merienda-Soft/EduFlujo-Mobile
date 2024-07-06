@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'; 
 
 const globalStyles = StyleSheet.create({
 
@@ -9,6 +9,8 @@ const globalStyles = StyleSheet.create({
         backgroundColor: '#4D5D73',
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 10,
+        paddingTop: 20,
     },
 
     // Estilo para el componente Bubble
