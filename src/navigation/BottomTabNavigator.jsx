@@ -9,6 +9,8 @@ import Clases from '../screens/Clases';
 import Asistencias from '../screens/Asistencias';
 import Actividades from '../screens/Actividades';
 import Asignaturas from '../screens/Asignaturas';
+import NuevaActividad from '../screens/Actividades/Create';
+import Qualifications from '../screens/Actividades/Qualifications';
 
 const icons = {
     Home: {
@@ -38,6 +40,8 @@ const BottomTabNavigator = () => {
             <Tab.Screen name="Asistencias" component={Asistencias}/>
             <Tab.Screen name="Actividades" component={Actividades}/>
             <Tab.Screen name="Asignaturas" component={Asignaturas}/>
+            <Tab.Screen name="Nueva Actividad" component={NuevaActividad}/>
+            <Tab.Screen name="Calificaciones" component={Qualifications}/>
         </Tab.Navigator>
     );
 };

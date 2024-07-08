@@ -101,7 +101,7 @@ const Actividades = ({ navigation }) => {
             {/* Boton para crear nueva actividad */}
             <View style={styles.separator} />
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.createButton}>
+                <TouchableOpacity style={styles.createButton} onPress={() => navigation.navigate('Nueva Actividad')}>
                     <Text style={styles.createText}>
                         Nueva Actividad
                     </Text>
