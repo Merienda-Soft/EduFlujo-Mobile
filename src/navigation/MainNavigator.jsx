@@ -11,20 +11,20 @@ import CodeRole from '../screens/CodeRole';
 const Stack = createNativeStackNavigator();
 
 const MainNavigator = () => {
-    return (
-        <NavigationContainer>
+  return (
+    <NavigationContainer>
 
-            {/* 
+      {/* 
                 Crea un navegador en la parte superior de la pantalla 
                 headerShown: false, oculta la barra de navegación en la parte superior de la pantalla
             */}
-            <Stack.Navigator initialRouteName="MainLogin">
-                <Stack.Screen name="MainLogin" component={MainLogin} options={{ headerShown: false }} />
-                <Stack.Screen name="CodeRole" component={CodeRole} options={{ headerShown: false }} />
-                <Stack.Screen name="HomeTabs" component={BottomTabNavigator} options={{ headerShown: false }} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
+      <Stack.Navigator initialRouteName="MainLogin">
+        <Stack.Screen name="MainLogin" component={MainLogin} options={{ headerShown: false }} />
+        <Stack.Screen name="CodeRole" component={CodeRole} options={{ headerShown: false }} />
+        <Stack.Screen name="HomeTabs" component={BottomTabNavigator} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default MainNavigator;
