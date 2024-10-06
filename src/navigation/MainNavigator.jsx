@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomTabNavigator from './BottomTabNavigator';
 import MainLogin from '../screens/MainLogin';
 import CodeRole from '../screens/CodeRole';
+import Login from '../screens/Login';
 
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ const MainNavigator = () => {
             */}
             <Stack.Navigator initialRouteName="MainLogin">
                 <Stack.Screen name="MainLogin" component={MainLogin} options={{ headerShown: false }} />
+                <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="CodeRole" component={CodeRole} options={{ headerShown: false }} />
                 <Stack.Screen name="HomeTabs" component={BottomTabNavigator} options={{ headerShown: false }} />
             </Stack.Navigator>

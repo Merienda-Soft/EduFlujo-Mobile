@@ -13,7 +13,7 @@ const MainLogin = ({ navigation }) => {
 
             <Image source={require('../assets/images/logo.webp')} style={styles.logo} />
 
-            <TouchableOpacity onPress={() => navigation.navigate('CodeRole')} style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.button}>
                 <Text style={styles.text}>Login</Text>
             </TouchableOpacity>
            

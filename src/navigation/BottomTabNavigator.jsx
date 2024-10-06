@@ -11,6 +11,8 @@ import Actividades from '../screens/Actividades';
 import Asignaturas from '../screens/Asignaturas';
 import NuevaActividad from '../screens/Actividades/Create';
 import Qualifications from '../screens/Actividades/Qualifications';
+import Reports from '../screens/Reports';
+import Records from '../screens/Records';
 
 const icons = {
     Home: {
@@ -34,7 +36,7 @@ const BottomTabNavigator = () => {
     return (
         <Tab.Navigator screenOptions={{tabBarHideOnKeyboard: true}} tabBar={props => <CustomBottomNav {...props} icons={icons} />}>
             <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
-            <Tab.Screen name="Reportes" component={Home} options={{ headerShown: false }}/>
+            <Tab.Screen name="Reportes" component={Reports} options={{ headerShown: false }}/>
             <Tab.Screen name="Perfil" component={Home} options={{ headerShown: false }}/>
             <Tab.Screen name="Mis Clases" component={Clases}/>
             <Tab.Screen name="Asistencias" component={Asistencias}/>
@@ -42,6 +44,7 @@ const BottomTabNavigator = () => {
             <Tab.Screen name="Asignaturas" component={Asignaturas}/>
             <Tab.Screen name="Nueva Actividad" component={NuevaActividad}/>
             <Tab.Screen name="Calificaciones" component={Qualifications}/>
+            <Tab.Screen name="Records" component={Records} />
         </Tab.Navigator>
     );
 };
