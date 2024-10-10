@@ -8,50 +8,34 @@ import useBackButton from '../components/common/useBackButton';
 import Search from '../components/common/Search';
 import ListSubject from '../components/common/ListSubject';
 
-const asignaturas = [
-  {
-    id: 1,
-    Image: require('../assets/images/Asignaturas.png'),
-    title: 'Lenguaje'
-  },
-  {
-    id: 2,
-    Image: require('../assets/images/Asignaturas.png'),
-    title: 'Matematicas'
-  },
-  {
-    id: 3,
-    Image: require('../assets/images/Asignaturas.png'),
-    title: 'Ciencias Sociales'
-  },
-  {
-    id: 4,
-    Image: require('../assets/images/Asignaturas.png'),
-    title: 'Ciencias Naturales'
-  },
-  {
-    id: 5,
-    Image: require('../assets/images/Asignaturas.png'),
-    title: 'Musica'
-  },
-  {
-    id: 6,
-    Image: require('../assets/images/Asignaturas.png'),
-    title: 'Educacion Fisica'
-  },
-  {
-    id: 7,
-    Image: require('../assets/images/Asignaturas.png'),
-    title: 'Ingles'
-  },
-]
+import { useData } from '../utils/globals';
 
-const Asignaturas = ({ navigation }) => {
+
+const Asignaturas = ({ navigation, route  }) => {
 
   useBackButton(navigation);
 
-  const renderItem = ({ item }) => <ListSubject data={item} navigation={navigation} />
+  const { cursoId } = route.params; 
+  const { data } = useData(); 
 
+  const curso = data?.cursos.find((c) => c._id === cursoId);
+
+  if (!curso) {
+    return (
+      <View style={globalStyles.container}>
+        <Text style={styles.errorText}>No se encontraron materias para este curso.</Text>
+      </View>
+    );
+  }
+
+  const renderItem = ({ item }) => (
+    <ListSubject
+      image={require('../assets/images/Asignaturas.png')}
+      materiaData={item}
+      navigation={navigation}
+      cursoId={cursoId}
+    />
+  );
   return (
     <View style={globalStyles.container}>
 
@@ -68,7 +52,7 @@ const Asignaturas = ({ navigation }) => {
 
 
       <FlatList
-        data={asignaturas}
+        data={curso.materias}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={2}

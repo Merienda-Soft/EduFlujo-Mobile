@@ -9,51 +9,20 @@ import Bubble from '../components/common/Bubble';
 //Componente Card
 import CardHome from '../components/common/CardHome';
 
-const contentCards = [
-  {
-    id: '1',
-    image: require('../assets/images/Clases.png'),
-    description: 'Quinto B',
-    text: 'Asignaturas',
-  },
-  {
-    id: '2',
-    image: require('../assets/images/Asistencias.png'),
-    description: 'Primero C',
-    text: 'Asignaturas',
-  },
-  {
-    id: '3',
-    image: require('../assets/images/Actividades.png'),
-    description: 'Sexto B',
-    text: 'Asignaturas',
-  },
-  {
-    id: '4',
-    image: require('../assets/images/Asignaturas.png'),
-    description: 'Primero A',
-    text: 'Asignaturas',
-  },
-  {
-    id: '5',
-    image: require('../assets/images/Actividades.png'),
-    description: 'Sexto B',
-    text: 'Asignaturas',
-  },
-  {
-    id: '6',
-    image: require('../assets/images/Asignaturas.png'),
-    description: 'Primero A',
-    text: 'Asignaturas',
-  },
-];
-
-
+import { useData } from '../utils/globals';
 
 const Home = ({ navigation }) => {
 
+  const { data } = useData();
+
+  const courses = data?.cursos || [];
+
   const renderItem = ({ item }) => (
-    <CardHome image={item.image} description={item.description} text={item.text} navigation={navigation} />
+    <CardHome
+      id={item._id} 
+      image={require('../assets/images/Clases.png')} 
+      description={item.name} 
+      navigation={navigation} />
   );
 
   return (
@@ -66,7 +35,7 @@ const Home = ({ navigation }) => {
                         y desafios."/>
       {/* Cards */}
       <FlatList
-        data={contentCards}
+        data={courses}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         numColumns={2}

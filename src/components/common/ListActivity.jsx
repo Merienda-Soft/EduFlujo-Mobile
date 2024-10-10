@@ -5,7 +5,7 @@ const ListActivity = ({ data, navigation }) => {
     return (
         <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Calificaciones')}>
             <Text style={styles.title}>
-                {data.title} || {data.ponderacion}
+                {data.name} || {data.ponderacion}
             </Text>
         </TouchableOpacity>
     )

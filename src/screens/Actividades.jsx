@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
 //Estilos
@@ -8,69 +8,44 @@ import useBackButton from '../components/common/useBackButton';
 import Search from '../components/common/Search';
 import ListActivity from '../components/common/ListActivity';
 
+import {URL_API} from '../utils/apiUrl';
+
 const actividades = [
     {
         id: 1,
         title: 'Actividad 1',
         ponderacion: "30%",
     },
-    {
-        id: 2,
-        title: 'Actividad 2',
-        ponderacion: "40%",
-    },
-    {
-        id: 3,
-        title: 'Actividad 3',
-        ponderacion: "30%",
-    },
-    {
-        id: 4,
-        title: 'Actividad 4',
-        ponderacion: "20%",
-    },
-    {
-        id: 5,
-        title: 'Actividad 5',
-        ponderacion: "10%",
-    },  
-    {
-        id: 6,
-        title: 'Actividad 6',
-        ponderacion: "50%",
-    },  
-    {
-        id: 7,
-        title: 'Actividad 7',
-        ponderacion: "70%",
-    },  
-    {
-        id: 8,
-        title: 'Actividad 8',
-        ponderacion: "60%",
-    },  
-    {           
-        id: 9,
-        title: 'Actividad 9',
-        ponderacion: "50%",
-    },
-    {           
-        id: 10,
-        title: 'Actividad 10',
-        ponderacion: "40%",
-    },
-    {           
-        id: 11,
-        title: 'Actividad 11',
-        ponderacion: "30%",
-    },
 
 ];
 
 
-const Actividades = ({ navigation }) => {
+const Actividades = ({ navigation, route }) => {
+    const [actividades, setActividades] = useState([]);
+    const { materiaid, cursoid, teacherid } = route.params;
 
+    
     useBackButton(navigation);
+    useEffect(() => {
+        const fetchActividades = async () => {
+          try {
+            const url = `${URL_API}/activities/filter?materiaid=${materiaid}&cursoid=${cursoid}&teacherid=${teacherid}`;
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            const result = await response.json();
+            setActividades(result); // Asegúrate de ajustar según la estructura de tu API
+          } catch (error) {
+            console.error('Error al obtener las actividades:', error);
+          }
+        };
+    
+        fetchActividades();
+      }, [materiaid, cursoid, teacherid]);
+
 
     const renderItem = ({ item }) => <ListActivity data={item} navigation={navigation} />;
 
@@ -101,7 +76,7 @@ const Actividades = ({ navigation }) => {
             {/* Boton para crear nueva actividad */}
             <View style={styles.separator} />
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.createButton} onPress={() => navigation.navigate('Nueva Actividad')}>
+                <TouchableOpacity style={styles.createButton} onPress={() => navigation.navigate('Nueva Actividad', {ids: route.params})}>
                     <Text style={styles.createText}>
                         Nueva Actividad
                     </Text>

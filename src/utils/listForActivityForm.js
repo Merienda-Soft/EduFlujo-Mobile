@@ -1,4 +1,8 @@
-const listTypeActivity = ["Normal", "Evaluacion", "Autoevaluacion"];
+const listTypeActivity = [
+    { label: "Normal", value: 1 },
+    { label: "Evaluacion", value: 2 },
+    { label: "Autoevaluacion", value: 3 }
+  ];
 
 const listTypeClass = ["Quinto B", "Quinto A", "Sexto B", "Sexto A"];
 

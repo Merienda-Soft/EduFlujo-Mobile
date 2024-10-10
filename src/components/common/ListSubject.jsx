@@ -1,14 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { useData } from '../../utils/globals';
 
-const ListSubject = ({ data, navigation }) => {
+const ListSubject = ({ materiaData, image, navigation, cursoId }) => {
+
+    const { data } = useData(); 
+
     return (
-        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Actividades')}>
+        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Actividades', {materiaid: materiaData._id, cursoid: cursoId, teacherid: data._id})}>
             <View style={styles.subContainer}>
-                <Image source={data.Image} style={styles.image} />  
+                <Image source={image} style={styles.image} />  
 
                 <Text style={styles.title}>
-                    {data.title}
+                    {materiaData.name}
                 </Text>
             </View>
         </TouchableOpacity>
