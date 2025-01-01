@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import {URL_API} from '../utils/apiUrl';
-import { useData } from '../utils/globals';
+import {URL_API} from '../../utils/api/apiUrl';
+import { useData } from '../../utils/globals';
 
 // estilo global para le container y bubble
-import globalStyles from '../styles/GlobalStyles';
+import globalStyles from '../../styles/GlobalStyles';
 
 const CodeRole = ({ navigation }) => {
     const [passwordVisible, setPasswordVisible] = useState(false);

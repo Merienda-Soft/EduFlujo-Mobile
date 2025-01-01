@@ -1,9 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const CardHome = ({ id, image, description, navigation }) => {
+const CardHome = ({ id, image, description }) => {
+
+  const navigations = useNavigation();
+  console.log(navigations)
   return (
-    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Asignaturas", {cursoId: id } )}>
+    <TouchableOpacity style={styles.card} onPress={() => navigations.navigate("Asignaturas", {cursoId: id } )}>
       <Image source={image} style={styles.image} />
       <Text style={styles.textCard}>{description}</Text>
     </TouchableOpacity>

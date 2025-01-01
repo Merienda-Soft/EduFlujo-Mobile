@@ -4,9 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //Screens
 import BottomTabNavigator from './BottomTabNavigator';
-import MainLogin from '../screens/MainLogin';
+import MainLogin from '../screens/Auth/MainLogin';
 import CodeRole from '../screens/CodeRole';
-import Login from '../screens/Login';
+import Login from '../screens/Auth/Login';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,8 @@ const MainNavigator = () => {
                 <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="CodeRole" component={CodeRole} options={{ headerShown: false }} />
                 <Stack.Screen name="HomeTabs" component={BottomTabNavigator} options={{ headerShown: false }} />
+
+                
             </Stack.Navigator>
         </NavigationContainer>
     );

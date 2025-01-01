@@ -42,7 +42,7 @@ const Asignaturas = ({ navigation, route  }) => {
       <Search navigation={navigation} />
       <View style={styles.separator} />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.createButton} onPress={() => navigation.navigate('Asistencias')}>
+        <TouchableOpacity style={styles.createButton} onPress={() => navigation.push('Asistencias')}>
           <Text style={styles.createText}>
             Asistencias
           </Text>

@@ -1,18 +1,21 @@
 // BottomTabNavigator.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CustomBottomNav from './CustomBottomNav';
 
 // Screens
 import Home from '../screens/Home';
-import Clases from '../screens/Clases';
-import Asistencias from '../screens/Asistencias';
-import Actividades from '../screens/Actividades';
+import Reports from '../screens/Reports';
+
 import Asignaturas from '../screens/Asignaturas';
+import Asistencias from '../screens/Asistencias';
+import Clases from '../screens/Clases';
+import Actividades from '../screens/Actividades';
 import NuevaActividad from '../screens/Actividades/Create';
 import Qualifications from '../screens/Actividades/Qualifications';
-import Reports from '../screens/Reports';
 import Records from '../screens/Records';
+
 
 const icons = {
     Home: {
@@ -31,6 +34,21 @@ const icons = {
 
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+const ActividadesStack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Asignaturas" component={Asignaturas} />
+                <Stack.Screen name="Asistencias" component={Asistencias}/>
+                <Stack.Screen name="Mis Clases" component={Clases}/>
+                <Stack.Screen name="Actividades" component={Actividades}/>
+                <Stack.Screen name="Nueva Actividad" component={NuevaActividad}/>
+                <Stack.Screen name="Calificaciones" component={Qualifications}/>
+                <Stack.Screen name="Records" component={Records} />
+        </Stack.Navigator>
+    );
+};
 
 const BottomTabNavigator = () => {
     return (
@@ -38,13 +56,7 @@ const BottomTabNavigator = () => {
             <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
             <Tab.Screen name="Reportes" component={Reports} options={{ headerShown: false }}/>
             <Tab.Screen name="Perfil" component={Home} options={{ headerShown: false }}/>
-            <Tab.Screen name="Mis Clases" component={Clases}/>
-            <Tab.Screen name="Asistencias" component={Asistencias}/>
-            <Tab.Screen name="Actividades" component={Actividades}/>
-            <Tab.Screen name="Asignaturas" component={Asignaturas}/>
-            <Tab.Screen name="Nueva Actividad" component={NuevaActividad}/>
-            <Tab.Screen name="Calificaciones" component={Qualifications}/>
-            <Tab.Screen name="Records" component={Records} />
+            <Tab.Screen name="Actividades" component={ActividadesStack} options={{ headerShown: false }} />
         </Tab.Navigator>
     );
 };

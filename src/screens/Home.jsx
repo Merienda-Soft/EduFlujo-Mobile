@@ -21,8 +21,7 @@ const Home = ({ navigation }) => {
     <CardHome
       id={item._id} 
       image={require('../assets/images/Clases.png')} 
-      description={item.name} 
-      navigation={navigation} />
+      description={item.name} />
   );
 
   return (

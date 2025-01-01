@@ -8,7 +8,7 @@ import useBackButton from '../components/common/useBackButton';
 import Search from '../components/common/Search';
 import ListActivity from '../components/common/ListActivity';
 
-import {URL_API} from '../utils/apiUrl';
+import {URL_API} from '../utils/api/apiUrl';
 
 const actividades = [
     {

@@ -4,7 +4,7 @@ import globalStyles from '../../styles/GlobalStyles';
 import useBackButton from '../../components/common/useBackButton';
 import TypePicker from '../../components/common/Activity/TypePicker';
 import { listTypeActivity } from '../../utils/listForActivityForm';
-import {URL_API} from '../../utils/apiUrl';
+import {URL_API} from '../../utils/api/apiUrl';
 
 const NewActivity = ({ navigation, route }) => {
 

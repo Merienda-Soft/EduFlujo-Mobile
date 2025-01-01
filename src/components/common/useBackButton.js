@@ -5,10 +5,10 @@ const useBackButton = (navigation) => {
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.canGoBack() ? navigation.goBack() : navigation.navigate('FallbackScreen')}>
           <Image
             source={require("../../assets/icons/back.png")}
-            style={{ width: 24, height: 24, marginLeft: 20 }}
+            style={{ width: 24, height: 24, marginLeft: 10, marginRight: 10 }}
           />
         </TouchableOpacity>
       ),
