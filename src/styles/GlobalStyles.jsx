@@ -18,6 +18,7 @@ const globalStyles = StyleSheet.create({
     bubbleContainer: {
         alignItems: 'center',
         justifyContent: 'center',
+        width:'100%'
     },
 
     bubble: {
@@ -27,7 +28,7 @@ const globalStyles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        width: 250,
+        width: "80%",
     },
 
     triangle: {
@@ -43,7 +44,7 @@ const globalStyles = StyleSheet.create({
         borderBottomColor: '#D9D9D9',
         position: 'absolute',
         top: -40,
-        left: -20,
+        left: 10,
         marginTop: 60,
         zIndex: 2,
         transform: [{rotate: '-90deg'}],

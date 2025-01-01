@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const ListActivity = ({ data, navigation }) => {
     return (
-        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Actividades')}>
+        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Calificaciones')}>
             <Text style={styles.title}>
-                {data.title} || {data.ponderacion}
+                {data.name} || {data.ponderacion}
             </Text>
         </TouchableOpacity>
     )

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 // estilo global para le container
-import globalStyles from '../styles/GlobalStyles';
+import globalStyles from '../../styles/GlobalStyles';
 
 
 
@@ -11,9 +11,9 @@ const MainLogin = ({ navigation }) => {
     return (
         <View style={globalStyles.container}>
 
-            <Image source={require('../assets/images/logo.webp')} style={styles.logo} />
+            <Image source={require('../../assets/images/logo.webp')} style={styles.logo} />
 
-            <TouchableOpacity onPress={() => navigation.navigate('CodeRole')} style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.button}>
                 <Text style={styles.text}>Login</Text>
             </TouchableOpacity>
            
